@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <dimen name = "radioEsquinas">12dp</dimen>
+    <dimen name = "alturaBoton">45dp</dimen>
+    <dimen name = "anchoBoton">300dp</dimen>
+    <dimen name = "anchoBotonInicio">220dp</dimen>
+    <dimen name = "alturaBotonInicio">55dp</dimen>
+    <dimen name = "letraTamanoBoton_Inicio">24sp</dimen>
+    <dimen name = "letraTamanoBoton">18sp</dimen>
+    <dimen name = "TamanoIconoAncho">70dp</dimen>
+    <dimen name = "TamanoIconoAltura">70dp</dimen>
+</resources>

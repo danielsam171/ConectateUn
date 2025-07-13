@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/negroMelo"
+    tools:context=".MenuPrincipal">
+
+    <LinearLayout
+        android:layout_width="385dp"
+        android:layout_height="710dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.476">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Menu"
+            android:textColor="@color/white"
+            android:textSize="@dimen/letraTamanoBoton_Inicio" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TableLayout
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="@dimen/alturaBoton"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="@dimen/anchoBoton"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/anchoBoton"
+                    android:layout_height="@dimen/alturaBoton"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/rojoMelo"
+                    app:cardCornerRadius="@dimen/radioEsquinas">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <Space
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:id="@+id/icono1"
+                                android:layout_width="@dimen/TamanoIconoAncho"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/busqueda" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnInfoEstudiante"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/text_btn_informacionEstudiante"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/letraTamanoBoton"
+                                app:backgroundTint="@color/rojoMelo"
+                                app:cornerRadius="@dimen/radioEsquinas" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/anchoBoton"
+                    android:layout_height="@dimen/alturaBoton"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/rojoMelo"
+                    app:cardCornerRadius="@dimen/radioEsquinas">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:id="@+id/icono2"
+                            android:layout_width="@dimen/TamanoIconoAncho"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/busqueda" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAgregarEstudiante"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/text_btn_agregarEstudiante"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/letraTamanoBoton"
+                            app:backgroundTint="@color/rojoMelo"
+                            app:cornerRadius="@dimen/radioEsquinas" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/anchoBoton"
+                    android:layout_height="@dimen/alturaBoton"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/rojoMelo"
+                    app:cardCornerRadius="@dimen/radioEsquinas">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <Space
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:id="@+id/icono3"
+                                android:layout_width="@dimen/TamanoIconoAncho"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/atrasado" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btneliminarEstudiante"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/text_btn_eliminarEstudiante"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/letraTamanoBoton"
+                                app:backgroundTint="@color/rojoMelo"
+                                app:cornerRadius="@dimen/radioEsquinas" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/anchoBoton"
+                    android:layout_height="@dimen/alturaBoton"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/rojoMelo"
+                    app:cardCornerRadius="@dimen/radioEsquinas">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:id="@+id/icono4"
+                            android:layout_width="@dimen/TamanoIconoAncho"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/busqueda" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnConsultarConexiones"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_btn_consultarConexiones"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/letraTamanoBoton"
+                            app:backgroundTint="@color/rojoMelo"
+                            app:cornerRadius="@dimen/radioEsquinas" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/anchoBoton"
+                    android:layout_height="@dimen/alturaBoton"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/rojoMelo"
+                    app:cardCornerRadius="@dimen/radioEsquinas">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:id="@+id/icono5"
+                            android:layout_width="@dimen/TamanoIconoAncho"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/busqueda" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnConsultarDeporte"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/text_btn_consultarDeporte"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/letraTamanoBoton"
+                            app:backgroundTint="@color/rojoMelo"
+                            app:cornerRadius="@dimen/radioEsquinas" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </TableRow>
+        </TableLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
