@@ -13,12 +13,20 @@
         android:theme="@style/Theme.Estructuras"
         tools:targetApi="31">
         <activity
+            android:name=".AgregarEstudiante"
+            android:exported="false" />
+        <activity
+            android:name=".InfoEstudiante"
+            android:exported="false" />
+        <activity
+            android:name=".EliminarEstudiante"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipal"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Iniciar_Sesion"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".Registro"
             android:exported="false" />
