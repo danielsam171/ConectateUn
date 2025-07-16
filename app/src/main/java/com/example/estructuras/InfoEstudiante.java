@@ -23,7 +23,7 @@ public class InfoEstudiante extends AppCompatActivity {
     String[] deportes = {"Natación", "Fútbol", "Voleibol", "Baloncesto", "Tenis"};//La lista de todas las opciones posibles
     boolean[] seleccionados; //Un array de booleanos para rastrear qué casillas están marcadas.
     ArrayList<Integer> deportesSeleccionados = new ArrayList<>(); //Una lista dinámica para guardar los ÍNDICES de los elementos que el usuario selecciona.
-
+    
     //Esto es para mostrar en una tabla
     ArrayList<String> listaDeNombres = new ArrayList<>(); ////lista de deportes ya seleccionados y que sale en la tabla
     ArrayAdapter<String> adapter; //El adaptador para conectar la lista
@@ -100,6 +100,7 @@ public class InfoEstudiante extends AppCompatActivity {
                             }
                         }
                         adapter.notifyDataSetChanged(); //Actulizar la tabla para mostrar los resultados si fueron alterados
+                        System.out.println(stringBuilder);
 
 
                         //procesarDeportesSeleccionados(listaDeNombres);
@@ -140,4 +141,7 @@ public class InfoEstudiante extends AppCompatActivity {
 
     }
 
+    public ArrayList<Integer> getDeportesSeleccionados() {
+        return deportesSeleccionados;
+    }
 }
