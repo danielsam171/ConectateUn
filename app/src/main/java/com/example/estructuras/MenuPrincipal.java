@@ -27,4 +27,8 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent intent = new Intent(this,InfoEstudiante.class);
         startActivity(intent);
     }
+    public void irAgrEstudiante(View view){
+        Intent intent = new Intent(this,AgregarEstudiante.class);
+        startActivity(intent);
+    }
 }
