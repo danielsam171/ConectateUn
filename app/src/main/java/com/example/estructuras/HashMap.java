@@ -1,4 +1,4 @@
-package com.example.estructuras;
+/*package com.example.estructuras;
 
 public class HashMap<K, V> {
     private int size;
@@ -139,7 +139,7 @@ public class HashMap<K, V> {
     }
     
 }
-
+*/
 
 
 
