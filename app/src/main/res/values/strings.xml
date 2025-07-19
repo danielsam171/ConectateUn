@@ -11,5 +11,12 @@
     <string name="text_btn_eliminarEstudiante">Eliminar Estudiante</string>
     <string name="text_btn_consultarConexiones">Consultar Conexiones</string>
     <string name="text_btn_consultarDeporte">Consultar Deporte</string>
+    <string name="text_registro">Registro</string>
+    <string name="text_nombres">Nombres: </string>
+    <string name="text_apellidos">Apellidos: </string>
+    <string name="text_cedula">CC:</string>
+    <string name="text_anade_deportes">Agrega los deportes que …</string>
+    <string name="text_practica">Practica</string>
+    <string name="text_interesan">Le Interesan</string>
 
 </resources>

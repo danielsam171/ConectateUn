@@ -5,6 +5,166 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/negroMelo"
     tools:context=".AgregarEstudiante">
+
+    <LinearLayout
+        android:layout_width="359dp"
+        android:layout_height="696dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_registro"
+                android:textColor="@color/white"
+                android:textSize="@dimen/letraTitulos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/text_nombres"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/letraCampos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/editTextText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/text_apellidos"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/letraCampos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/editTextText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/text_cedula"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/letraCampos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_anade_deportes"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/letraCampos" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/negroMelo"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/agrSelectDeportes1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/borde_redondeado"
+                    android:drawableEnd="@android:drawable/arrow_down_float"
+                    android:padding="12dp"
+                    android:text="@string/text_practica"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ListView
+                    android:id="@+id/agrTablaEstudiante_deportes1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/agrSelectDeportes2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/borde_redondeado"
+                    android:drawableEnd="@android:drawable/arrow_down_float"
+                    android:padding="12dp"
+                    android:text="@string/text_interesan"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ListView
+                    android:id="@+id/agrTablaEstudiante_deportes2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

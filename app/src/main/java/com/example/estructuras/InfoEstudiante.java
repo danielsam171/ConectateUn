@@ -20,14 +20,14 @@ public class InfoEstudiante extends AppCompatActivity {
 
     //Variables para recoger la informacion de los deportes
     TextView tvSelectDeportes; //La vista que funciona como nuestro botón
-    String[] deportes = {"Natación", "Fútbol", "Voleibol", "Baloncesto", "Tenis"};//La lista de todas las opciones posibles
+    String[] deportes = {"Fútbol", "Voleibol", "Baloncesto", "Ping Pong","Rugbi"};//La lista de todas las opciones posibles
     boolean[] seleccionados; //Un array de booleanos para rastrear qué casillas están marcadas.
     ArrayList<Integer> deportesSeleccionados = new ArrayList<>(); //Una lista dinámica para guardar los ÍNDICES de los elementos que el usuario selecciona.
     
     //Esto es para mostrar en una tabla
-    ArrayList<String> listaDeNombres = new ArrayList<>(); ////lista de deportes ya seleccionados y que sale en la tabla
+    ArrayList<String> ListaDeportesSeleccionados = new ArrayList<>(); ////lista de deportes ya seleccionados y que sale en la tabla
     ArrayAdapter<String> adapter; //El adaptador para conectar la lista
-    private ListView listView; // La lista que voy a mostrar
+    private ListView listView; // La lista que voy a mostrar, es el widget
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class InfoEstudiante extends AppCompatActivity {
         //Conexion para mostrar en tabla
         listView = findViewById(R.id.info_estudiante_deportes);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDeNombres);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListaDeportesSeleccionados);
         listView.setAdapter(adapter);
 
         // Conectamos la variable Java con el elemento del layout XML usando su ID
@@ -52,7 +52,7 @@ public class InfoEstudiante extends AppCompatActivity {
         // Inicializamos el array de booleanos con el tamaño correcto, todos en 'false'
         seleccionados = new boolean[deportes.length];
 
-        // Establecemos el "oyente" de clics. Este código se ejecutará CADA VEZ que el usuario toque el TextView.
+        // Establecemos el "oyente" de clics. Este código se ejecutará CADA VEZ que el usuario toque el TextView (Seleccione un deporte)
         tvSelectDeportes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,12 +87,12 @@ public class InfoEstudiante extends AppCompatActivity {
                         StringBuilder stringBuilder = new StringBuilder();
 
                         //Para mostrar en la tabla primero la limpiamos de cualquier residuo
-                        listaDeNombres.clear();
+                        ListaDeportesSeleccionados.clear();
 
                         for (int i = 0; i < deportesSeleccionados.size(); i++) {
                             // Obtenemos el texto del deporte usando el índice que guardamos.
                             stringBuilder.append(deportes[deportesSeleccionados.get(i)]);
-                            listaDeNombres.add(deportes[deportesSeleccionados.get(i)]);
+                            ListaDeportesSeleccionados.add(deportes[deportesSeleccionados.get(i)]);
 
                             // Si no es el último elemento de la lista, añadimos una coma y un espacio.
                             if (i != deportesSeleccionados.size() - 1) {
@@ -103,7 +103,7 @@ public class InfoEstudiante extends AppCompatActivity {
                         System.out.println(stringBuilder);
 
 
-                        //procesarDeportesSeleccionados(listaDeNombres);
+                        //procesarDeportesSeleccionados(ListaDeportesSeleccionados);
 
                         // Si no se seleccionó nada, volvemos al texto original.
                         if (stringBuilder.length() == 0) {
