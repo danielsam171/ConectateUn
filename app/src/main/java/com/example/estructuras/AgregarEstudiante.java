@@ -1,9 +1,12 @@
 package com.example.estructuras;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +21,11 @@ import java.util.ArrayList;
 
 public class AgregarEstudiante extends AppCompatActivity {
 
+    //Variables para gestionar el nombre, apellido y la CC
+    private EditText campoNombre;
+    private EditText campoApellido;
+    private EditText campoCC;
+
     //Variables para seleccionar los deportes en la primera vista
     TextView vistaSelecDepor1 ;
     String deportes[] = {"Fútbol", "Voleibol", "Baloncesto", "Ping Pong","Rugbi"};
@@ -29,8 +37,8 @@ public class AgregarEstudiante extends AppCompatActivity {
     ArrayAdapter<String> adapter1;
     private ListView tabla1;
 
-    //Variables para la segunda vista (pestana de seleccion de deportes
 
+    //Variables para la segunda vista (pestana de seleccion de deportes
     TextView vistaSelecDepor2 ;
     boolean blnSeleccion2[];
     ArrayList<Integer> indiceDeporSelect2 = new ArrayList<>();
@@ -51,8 +59,14 @@ public class AgregarEstudiante extends AppCompatActivity {
             return insets;
         });
 
+        //Configuracion de los campos de nombre, apellidos y CC para comuncarlos con los campos en xml
+        campoNombre = findViewById(R.id.agrEstNombre);
+        campoApellido = findViewById(R.id.agrEstApellido);
+        campoCC = findViewById(R.id.agrEstCC);
+
+
         //Configuracion del primer TextView para la tabla1 de deportes que practica
-        tabla1 = findViewById(R.id.agrTablaEstudiante_deportes1);
+        tabla1 = findViewById(R.id.agrDeportePractica);
         adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListadeportesSeleccionados1);
         tabla1.setAdapter(adapter1);
 
@@ -133,7 +147,7 @@ public class AgregarEstudiante extends AppCompatActivity {
             }
         });
 
-        tabla2 = findViewById(R.id.agrTablaEstudiante_deportes2);
+        tabla2 = findViewById(R.id.agrDeporteInteresan);
         adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListadeportesSeleccionados2);
         tabla2.setAdapter(adapter2);
 
@@ -214,5 +228,23 @@ public class AgregarEstudiante extends AppCompatActivity {
             }
         });
 
+    }
+    //Metodo para cambiar de vista apenas le de en el boton de Agregar Estudiante
+    //La eleccion de los deportes que practica estan en la variable ListadeportesSeleccionados1 (ArratList)
+    //La eleccion de los deportes que le interesan estan en la variable ListadeportesSeleccionados2 (ArratList)
+    //El nombre se encuentra en una variable nombrada de la misma manera, al igual que el apellido y la CC
+    //Lo que esta con log.d solo es para debuger
+    public void irMenuPrincipal(View view){
+        String nombre = campoNombre.getText().toString().trim();
+        String apellido = campoApellido.getText().toString().trim();
+        String CC = campoCC.getText().toString().trim();
+        Log.d("EleccionUsusario", "Los deportes que practica son: " + ListadeportesSeleccionados1);
+        Log.d("EleccionUsusario", "Los deportes que le interesan son: " + ListadeportesSeleccionados2);
+        Log.d("EleccionUsusario", "Nombre: " + nombre);
+        Log.d("EleccionUsusario", "Apellido: " + apellido);
+        Log.d("EleccionUsusario", "CC: " + CC);
+        Intent intent = new Intent(this, MenuPrincipal.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }

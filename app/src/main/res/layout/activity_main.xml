@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Space
-                android:layout_width="460dp"
+                android:layout_width="match_parent"
                 android:layout_height="569dp" />
 
             <ImageView
@@ -36,8 +36,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="390dp"
-            android:layout_height="686dp"
+            android:layout_width="@dimen/anchoLinearLayout"
+            android:layout_height="@dimen/alturaLinearLayout"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"

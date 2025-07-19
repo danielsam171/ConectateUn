@@ -31,4 +31,8 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent intent = new Intent(this,AgregarEstudiante.class);
         startActivity(intent);
     }
+    public void irEliEstudiante(View view){
+        Intent intent = new Intent(this,EliminarEstudiante.class);
+        startActivity(intent);
+    }
 }

@@ -7,8 +7,11 @@
     <string name="text_correo">Correo</string>
     <string name="text_confirmacion_clave">Confirmar Clave</string>
     <string name="text_btn_informacionEstudiante">Info del Estudiante</string>
+    <string name="text_title_informacionEstudiante">Ingrese el identificador del estudiante</string>
     <string name="text_btn_agregarEstudiante">Agregar Estudiante</string>
     <string name="text_btn_eliminarEstudiante">Eliminar Estudiante</string>
+    <string name="text_btn_eliminar">Eliminar</string>
+    <string name="text_btn_Menu">Menú</string>
     <string name="text_btn_consultarConexiones">Consultar Conexiones</string>
     <string name="text_btn_consultarDeporte">Consultar Deporte</string>
     <string name="text_registro">Registro</string>
@@ -18,5 +21,6 @@
     <string name="text_anade_deportes">Agrega los deportes que …</string>
     <string name="text_practica">Practica</string>
     <string name="text_interesan">Le Interesan</string>
+    <string name="text_mostrarEstudiante">Estos son los deportes que …</string>
 
 </resources>
