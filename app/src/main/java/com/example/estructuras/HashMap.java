@@ -2,6 +2,7 @@
 
 public class HashMap<K, V> {
     private int size;
+    private static final double LOAD_FACTOR = 0.75;
     private Nodo<K, V>[] table;
 
     public HashMap(int capacity) {
@@ -102,17 +103,6 @@ public class HashMap<K, V> {
         }
     }
 
-    private static class Nodo<K, V> {
-        K key;
-        V value;
-        Nodo<K, V> next;
-
-        Nodo(K key, V value) {
-            this.key = key;
-            this.value = value;
-            this.next = null;
-        }
-    }
 
 
     // Imprime el contenido interno del HashMap
