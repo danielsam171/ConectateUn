@@ -46,9 +46,14 @@ public class Estudiante {
         this.deportes_interesados = deportes_interesados.toArray(new String[deportes_interesados.size()]);
     }//setea el array de deportes interesados por medio de un ArrayList
 
-    public boolean equals(@NonNull Estudiante otro) {
-        return this.id == otro.id;
-    }//Compara si dos estudiantes son iguales
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Estudiante otro = (Estudiante) o;
+        return this.id == otro.id; // Compare by student ID
+    }
 
 }
 
