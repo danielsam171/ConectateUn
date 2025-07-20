@@ -1,4 +1,4 @@
-/*package com.example.estructuras;
+package com.example.estructuras;
 
 public class HashMap<K, V> {
     private int size;
@@ -10,6 +10,7 @@ public class HashMap<K, V> {
         this.table = new Nodo[capacity];
     }
 
+    //Insertar valor al Hashmap
     public void put(K key, V value) {
         if ((double) (size + 1) / table.length > LOAD_FACTOR) {
             rehash(); // duplica la tabla y reubica todo
@@ -39,6 +40,7 @@ public class HashMap<K, V> {
         size++;
     }
 
+    //Obtener nodo del hash con su Key
     public V get(K key) {
         int index = Math.abs(key.hashCode()) % table.length;
         Nodo<K, V> current = table[index];
@@ -50,7 +52,6 @@ public class HashMap<K, V> {
         }
         return null;
     }
-
 
     // Actualiza el valor de una clave solo si ya existe
     public boolean update(K key, V value) {
@@ -103,8 +104,6 @@ public class HashMap<K, V> {
         }
     }
 
-
-
     // Imprime el contenido interno del HashMap
     public void printTable() {
         for (int i = 0; i < table.length; i++) {
@@ -124,12 +123,12 @@ public class HashMap<K, V> {
     }
 
     // Devuelve el número de elementos almacenados
-    public int size() {
+    public int Getsize() {
         return size;
     }
     
 }
-*/
+
 
 
 
