@@ -50,6 +50,56 @@ public class GrafoEstudiantes {
         return set1;
     }
 
+
+    public List<Nodo<Integer, Estudiante>> encontrarRutaPorDeporte(Nodo<Integer, Estudiante> origen, String deporteBuscado) {
+
+        Map<Nodo<Integer, Estudiante>, Nodo<Integer, Estudiante>> predecesor = new HashMap<>();
+        Set<Nodo<Integer, Estudiante>> visitados = new HashSet<>();
+        Queue<Nodo<Integer, Estudiante>> cola = new LinkedList<>();
+
+        visitados.add(origen);
+        cola.add(origen);
+
+        Nodo<Integer, Estudiante> destinoFinal = null;
+
+        while (!cola.isEmpty()) {
+            Nodo<Integer, Estudiante> actual = cola.poll();
+
+            if (!actual.equals(origen)) {
+                for (String d : actual.value.getDeportesPracticados()) {
+                    if (d.equalsIgnoreCase(deporteBuscado)) {
+                        destinoFinal = actual;
+                        break;
+                    }
+                }
+                if (destinoFinal != null) break;
+            }
+
+            for (Arista e : rel.getOrDefault(actual, List.of())) {
+                Nodo<Integer, Estudiante> vecino = e.destino;
+                if (!visitados.contains(vecino)) {
+                    visitados.add(vecino);
+                    predecesor.put(vecino, actual);
+                    cola.add(vecino);
+                }
+            }
+        }
+
+        // Si no se encuentra a nadie
+        if (destinoFinal == null) return List.of();
+
+        // Reconstruir el camino desde destinoFinal hasta origen
+        List<Nodo<Integer, Estudiante>> ruta = new LinkedList<>();
+        Nodo<Integer, Estudiante> nodo = destinoFinal;
+
+        while (nodo != null) {
+            ruta.add(0, nodo); // insertar al inicio
+            nodo = predecesor.get(nodo);
+        }
+        return ruta; // la lista de nodos visitados
+    }
+
+    
     /*public void mostrarGrafoEstudiantes() {
         for (Nodo<Integer, Estudiante> nodo : rel.keySet()) {
             System.out.print(nodo.value.nombre + ": ");
