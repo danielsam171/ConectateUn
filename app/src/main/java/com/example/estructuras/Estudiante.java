@@ -9,11 +9,11 @@ public class Estudiante {
     private final int id;
     private String nombre;
     private String apellido;
-    private String [] deportes_practicados;
-    private String [] deportes_interesados;
+    private String[] deportes_practicados;
+    private String[] deportes_interesados;
 
 
-    public Estudiante (String nombre, String apellido, int id) {
+    public Estudiante(String nombre, String apellido, int id) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.id = id;
@@ -25,12 +25,15 @@ public class Estudiante {
     public String[] getDeportesPracticados() {
         return deportes_practicados;
     } //devuelve el array de deportes practicados
+
     public void setDeportesPracticados(String[] deportes_practicados) {
         this.deportes_practicados = deportes_practicados;
     }//setea el array de deportes practicados
+
     public String[] getDeportesInteresados() {
         return deportes_interesados;
     }//devuelve el array de deportes interesados
+
     public void setDeportesInteresados(String[] deportes_interesados) {
         this.deportes_interesados = deportes_interesados;
     }//setea el array de deportes interesados
@@ -46,4 +49,6 @@ public class Estudiante {
     public boolean equals(@NonNull Estudiante otro) {
         return this.id == otro.id;
     }//Compara si dos estudiantes son iguales
+
+}
 
