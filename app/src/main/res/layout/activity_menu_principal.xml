@@ -9,8 +9,8 @@
     tools:context=".MenuPrincipal">
 
     <LinearLayout
-        android:layout_width="385dp"
-        android:layout_height="710dp"
+        android:layout_width="@dimen/anchoLinearLayout"
+        android:layout_height="@dimen/alturaLinearLayout"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -189,6 +189,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:onClick="irEliEstudiante"
                                 android:text="@string/text_btn_eliminarEstudiante"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/letraTamanoBoton"

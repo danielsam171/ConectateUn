@@ -6,11 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/negroMelo"
+    android:backgroundTint="@color/negroMelo"
     tools:context=".InfoEstudiante">
 
     <LinearLayout
-        android:layout_width="374dp"
-        android:layout_height="673dp"
+        android:layout_width="@dimen/anchoLinearLayout"
+        android:layout_height="@dimen/alturaLinearLayout"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,21 +20,166 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvSelectDeportes"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:drawableEnd="@android:drawable/arrow_down_float"
-            android:padding="12dp"
-            android:text="Selecciona tus deportes"
-            android:textColor="@color/white"
-            android:background="@drawable/borde_redondeado"
-            android:textSize="18sp" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/info_estudiante_deportes"
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_title_informacionEstudiante"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/letraTitulos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/agrEstCC"
+                android:layout_width="@dimen/anchoCamposIngreso"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/text_cedula"
+                android:inputType="number"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/letraCampos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="@dimen/anchoCamposIngreso"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_nombres"
+                android:textColor="@color/white"
+                android:textSize="@dimen/letraCampos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/EspacioEntreBotones"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="@dimen/anchoCamposIngreso"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_apellidos"
+                android:textColor="@color/white"
+                android:textSize="@dimen/letraCampos" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_mostrarEstudiante"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/letraCampos" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="200dp"
+            android:background="@color/negroMelo"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/infSelectDeportes1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/borde_redondeado"
+                    android:drawableEnd="@android:drawable/arrow_down_float"
+                    android:padding="12dp"
+                    android:text="@string/text_practica"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ListView
+                    android:id="@+id/infDeportePractica"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/infSelectDeportes2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/borde_redondeado"
+                    android:drawableEnd="@android:drawable/arrow_down_float"
+                    android:padding="12dp"
+                    android:text="@string/text_interesan"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ListView
+                    android:id="@+id/infDeporteInteresan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button3"
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="@dimen/alturaBotonInicio"
+            android:backgroundTint="@color/rojoMelo"
+            android:onClick="irMenuprincipal"
+            android:text="@string/text_btn_Menu"
+            android:textColor="@color/white"
+            android:textSize="@dimen/letraTamanoBoton_Inicio"
+            app:cornerRadius="@dimen/radioEsquinas" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

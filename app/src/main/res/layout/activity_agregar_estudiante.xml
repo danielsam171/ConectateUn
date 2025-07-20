@@ -9,8 +9,9 @@
     tools:context=".AgregarEstudiante">
 
     <LinearLayout
-        android:layout_width="359dp"
-        android:layout_height="696dp"
+        android:layout_width="@dimen/anchoLinearLayout"
+        android:layout_height="@dimen/alturaLinearLayout"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +44,8 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/editTextText"
-                android:layout_width="match_parent"
+                android:id="@+id/agrEstNombre"
+                android:layout_width="@dimen/anchoCamposIngreso"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -59,8 +60,8 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/editTextText2"
-                android:layout_width="match_parent"
+                android:id="@+id/agrEstApellido"
+                android:layout_width="@dimen/anchoCamposIngreso"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -75,13 +76,13 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/editTextText3"
-                android:layout_width="match_parent"
+                android:id="@+id/agrEstCC"
+                android:layout_width="@dimen/anchoCamposIngreso"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/text_cedula"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColorHint="@color/white"
                 android:textSize="@dimen/letraCampos" />
 
@@ -103,7 +104,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="220dp"
             android:background="@color/negroMelo"
             android:orientation="horizontal">
 
@@ -130,7 +131,7 @@
                     android:textSize="18sp" />
 
                 <ListView
-                    android:id="@+id/agrTablaEstudiante_deportes1"
+                    android:id="@+id/agrDeportePractica"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
@@ -158,12 +159,24 @@
                     android:textSize="18sp" />
 
                 <ListView
-                    android:id="@+id/agrTablaEstudiante_deportes2"
+                    android:id="@+id/agrDeporteInteresan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
 
         </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="@dimen/anchoBoton"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/rojoMelo"
+            android:onClick="irMenuPrincipal"
+            android:text="@string/text_btn_agregarEstudiante"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/letraTamanoBoton_Inicio"
+            app:cornerRadius="@dimen/radioEsquinas" />
 
     </LinearLayout>
 

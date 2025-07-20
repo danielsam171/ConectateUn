@@ -1,6 +1,7 @@
 *.iml
 .gradle
 /local.properties
+
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -12,5 +13,11 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/
 local.properties
 /app/google-services.json
+# Archivos de configuracion local de Android Studio / IntelliJ IDEA
+.idea/.name
+.idea/AndroidProjectSystem.xml
+.idea/deploymentTargetSelector.xml
+.idea/runConfigurations.xml

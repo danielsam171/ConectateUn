@@ -47,8 +47,3 @@ public class Estudiante {
         return this.id == otro.id;
     }//Compara si dos estudiantes son iguales
 
-}
-
-
-
-

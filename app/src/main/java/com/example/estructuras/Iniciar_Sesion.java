@@ -79,7 +79,15 @@ public class Iniciar_Sesion extends AppCompatActivity {
         String correo = campo_usuario.getText().toString().trim();
         String clave = campo_clave.getText().toString().trim();
 
+        if (correo.isEmpty()) {
+            campo_usuario.setError("El correo es obligatorio");
+            return; // Detiene la ejecución si el campo está vacío
+        }
 
+        if (clave.isEmpty()) {
+            campo_clave.setError("La contraseña es obligatoria");
+            return;
+        }
         mAuth.signInWithEmailAndPassword(correo,clave)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
