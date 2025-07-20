@@ -100,6 +100,28 @@ public class GrafoEstudiantes {
     }
 
     
+    public void eliminarNodo(Nodo<Integer, Estudiante> nodoPorEliminar) {
+        // eliminar nodo de la lista y del map
+        nodos.remove(nodoPorEliminar);
+        rel.remove(nodoPorEliminar);
+
+        // borrar las referencias al nodo en los demas
+        for (Nodo<Integer, Estudiante> nodo : rel.keySet()) {
+            List<Arista> aristas = rel.get(nodo);
+            List<Arista> aristasAEliminar = new ArrayList<>();
+
+            // añadir las aristas que se quieren eliminar a una lista
+            for (Arista arista : aristas) {
+                if (arista.destino.equals(nodoPorEliminar)) {
+                    aristasAEliminar.add(arista);
+                }
+            }
+            // eliminarlas
+            aristas.removeAll(aristasAEliminar);
+        }
+    }
+
+    
     /*public void mostrarGrafoEstudiantes() {
         for (Nodo<Integer, Estudiante> nodo : rel.keySet()) {
             System.out.print(nodo.value.nombre + ": ");
