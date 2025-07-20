@@ -39,4 +39,8 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent intent = new Intent(this,ConsultarConexiones.class);
         startActivity(intent);
     }
+    public void irConsultarDeporte(View view){
+        Intent intent = new Intent(this,ConsultarDeporte.class);
+        startActivity(intent);
+    }
 }
