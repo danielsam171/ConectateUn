@@ -30,6 +30,7 @@ public class InfoEstudiante extends AppCompatActivity {
     ArrayAdapter<String> adapter; //El adaptador para conectar la lista
     private ListView listView; // La lista que voy a mostrar, es el widget
 
+    //crear variable miApp de la clase MiAplication
     private MiAplication miApp;
 
     //Esto es para mostrar la tabla de "Interesa"
@@ -40,7 +41,7 @@ public class InfoEstudiante extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        miApp = (MiAplication) getApplication();
+        miApp = (MiAplication) getApplication(); // Obtener la instancia de la aplicación
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_info_estudiante);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -67,7 +68,9 @@ public class InfoEstudiante extends AppCompatActivity {
         ListaDeportesSeleccionados2.add(deportes[4]);
         adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListaDeportesSeleccionados2);
         listView2.setAdapter(adapter2);
+
         miApp.getHashEstudiantes().printTable();
+
 
     }
     public void irMenuprincipal(View view){

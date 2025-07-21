@@ -247,10 +247,16 @@ public class AgregarEstudiante extends AppCompatActivity {
         Log.d("EleccionUsusario", "Nombre: " + nombre);
         Log.d("EleccionUsusario", "Apellido: " + apellido);
         Log.d("EleccionUsusario", "CC: " + CC);
+
+        //Procesar los datos del estudiante
         procesar_Estudiante(nombre,apellido,Integer.parseInt(CC));
+
+
+        //Imprimir para verificar que se agrego correctamente
         miApp.getHashEstudiantes().get(Integer.parseInt(CC)).imprimir();
         miApp.getHashEstudiantes().printTable();
         miApp.getHashDeportes().printTable();
+
         //Cambiar de vista
         Intent intent = new Intent(this, MenuPrincipal.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -271,6 +277,7 @@ public class AgregarEstudiante extends AppCompatActivity {
         Estudiante nuevo_estudiante = new Estudiante(nombre , apellido, id);
         miApp.getHashEstudiantes().put(id,nuevo_estudiante);
     }
+
 
     public void agregar_Estudiante_Hash_deportes(String deporte, int id){
         Estudiante estudiante = miApp.getHashEstudiantes().get(id);

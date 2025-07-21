@@ -10,9 +10,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ConsultarDeporte extends AppCompatActivity {
 
+    private MiAplication miApp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        miApp = (MiAplication) getApplication();
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_consultar_deporte);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -21,4 +26,11 @@ public class ConsultarDeporte extends AppCompatActivity {
             return insets;
         });
     }
+
+
+    /* public consultardeporte(String deporte){
+        miapp.getgrafo.consultardeporte(deporte);
+
+    } */
+
 }

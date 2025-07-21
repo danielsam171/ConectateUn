@@ -12,8 +12,15 @@ public class MiAplication extends Application {
     // Es buena práctica hacerlos privados y acceder a ellos mediante getters
     // o métodos específicos si necesitas más control, pero para empezar
     // públicos está bien para entender el concepto.
+
+    //crear variables para Hash para acceder a ellas desde cualquier archivo
     public HashMap<Integer, Estudiante> hash_Estudiantes_app;
-    public HashMap<String, ArrayList<Estudiante>> hash_deportes_app;
+    public HashMap<String, ArrayList<Estudiante> > hash_deportes_app;
+
+
+
+    //todo crear variable grafo publico para acceder a ella desde cualquier archivo
+
 
     private static final String TAG = "MiAplicacion"; // Tag para los logs
 
@@ -43,6 +50,6 @@ public class MiAplication extends Application {
         return hash_deportes_app;
     }
 
-
+    //todo crear metodo getter para grafo
 
 }

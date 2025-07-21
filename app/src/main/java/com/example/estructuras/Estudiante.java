@@ -46,6 +46,8 @@ public class Estudiante {
         this.deportes_interesados = deportes_interesados.toArray(new String[deportes_interesados.size()]);
     }//setea el array de deportes interesados por medio de un ArrayList
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
