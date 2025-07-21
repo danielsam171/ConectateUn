@@ -25,10 +25,11 @@ public class AgregarEstudiante extends AppCompatActivity {
     private EditText campoNombre;
     private EditText campoApellido;
     private EditText campoCC;
+    private MiAplication miApp;
 
     //Variables para seleccionar los deportes en la primera vista
     TextView vistaSelecDepor1 ;
-    String deportes[] = {"Fútbol", "Voleibol", "Baloncesto", "Ping Pong","Rugbi"};
+    String deportes[] = {"Fútbol", "voleibol", "Baloncesto", "ping pong","Rugby"};
     boolean blnSeleccion1[];
     ArrayList<Integer> indiceDeporSelect1 = new ArrayList<>();
 
@@ -51,6 +52,7 @@ public class AgregarEstudiante extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        miApp = (MiAplication) getApplication();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_agregar_estudiante);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -120,6 +122,7 @@ public class AgregarEstudiante extends AppCompatActivity {
                             }
                         }
                         adapter1.notifyDataSetChanged(); //Actulizar la tabla1 para mostrar los resultados si fueron alterados
+
 
 
                         //procesarDeportesSeleccionados(ListadeportesSeleccionados11);
@@ -204,6 +207,7 @@ public class AgregarEstudiante extends AppCompatActivity {
 
 
                         //procesarDeportesSeleccionados(ListadeportesSeleccionados11);
+                        System.out.println(ListadeportesSeleccionados2);
 
                         // Si no se seleccionó nada, volvemos al texto original.
                     }
@@ -243,8 +247,37 @@ public class AgregarEstudiante extends AppCompatActivity {
         Log.d("EleccionUsusario", "Nombre: " + nombre);
         Log.d("EleccionUsusario", "Apellido: " + apellido);
         Log.d("EleccionUsusario", "CC: " + CC);
+        procesar_Estudiante(nombre,apellido,Integer.parseInt(CC));
+        miApp.getHashEstudiantes().get(Integer.parseInt(CC)).imprimir();
+        miApp.getHashEstudiantes().printTable();
+        miApp.getHashDeportes().printTable();
+        //Cambiar de vista
         Intent intent = new Intent(this, MenuPrincipal.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
+    public void procesar_Estudiante(String nombre, String apellido, int id){
+        agregar_Estudiante_Hash(nombre,apellido,id);
+        for (String deporte : ListadeportesSeleccionados1) {
+            agregar_Estudiante_Hash_deportes(deporte,id);
+        }
+        Estudiante estudiante = miApp.getHashEstudiantes().get(id);
+        estudiante.setDeportesInteresados_Arraylist(ListadeportesSeleccionados1);
+        estudiante.setDeportesPracticados_Arraylist(ListadeportesSeleccionados2);
+    }
+
+    public void agregar_Estudiante_Hash(String nombre, String apellido, int id){
+        Estudiante nuevo_estudiante = new Estudiante(nombre , apellido, id);
+        miApp.getHashEstudiantes().put(id,nuevo_estudiante);
+    }
+
+    public void agregar_Estudiante_Hash_deportes(String deporte, int id){
+        Estudiante estudiante = miApp.getHashEstudiantes().get(id);
+        if (miApp.getHashDeportes().get(deporte) == null) {
+            miApp.getHashDeportes().put(deporte, new ArrayList<Estudiante>());
+        }
+        miApp.getHashDeportes().get(deporte).add(estudiante);
+    }
+
 }

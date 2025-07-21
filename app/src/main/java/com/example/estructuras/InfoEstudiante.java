@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.app.Application;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -26,6 +30,8 @@ public class InfoEstudiante extends AppCompatActivity {
     ArrayAdapter<String> adapter; //El adaptador para conectar la lista
     private ListView listView; // La lista que voy a mostrar, es el widget
 
+    private MiAplication miApp;
+
     //Esto es para mostrar la tabla de "Interesa"
     ArrayList<String> ListaDeportesSeleccionados2 = new ArrayList<>(); ////lista de deportes ya seleccionados y que sale en la tabla
     ArrayAdapter<String> adapter2; //El adaptador para conectar la lista
@@ -34,6 +40,7 @@ public class InfoEstudiante extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        miApp = (MiAplication) getApplication();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_info_estudiante);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -60,6 +67,8 @@ public class InfoEstudiante extends AppCompatActivity {
         ListaDeportesSeleccionados2.add(deportes[4]);
         adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListaDeportesSeleccionados2);
         listView2.setAdapter(adapter2);
+        miApp.getHashEstudiantes().printTable();
+
     }
     public void irMenuprincipal(View view){
         Intent intent = new Intent(this, MenuPrincipal.class);

@@ -55,5 +55,14 @@ public class Estudiante {
         return this.id == otro.id; // Compare by student ID
     }
 
+
+
+    public void imprimir(){
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("ID: " + id);
+        System.out.println("Deportes practicados: " + String.join(", ", deportes_practicados));
+        System.out.println("Deportes interesados: " + String.join(", ", deportes_interesados));
+    }
 }
 

@@ -10,7 +10,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MenuPrincipal extends AppCompatActivity {
+
+    //public static HashMap<Integer , Estudiante> hash_Estudiantes = new HashMap(10); // hashMap para almacenar los estudiantes
+    //public static HashMap<String , ArrayList<Estudiante> > hash_deportes = new HashMap(5); // HashMap para almacenar los estudiantes por deporte
+
+    ArrayList<Estudiante> estudiantes = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,8 +24,7 @@ import com.google.firebase.auth.AuthResult;
 
 public class Registro extends AppCompatActivity {
 
-    public static HashMap<Integer , Estudiante> hash_Estudiantes = new HashMap(10);
-    public static HashMap<String , HashMap<Integer , Estudiante> > hash_deportes = new HashMap(5);
+
 
     private EditText correo_campo;
     private EditText clave_campo;

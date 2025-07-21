@@ -19,7 +19,7 @@ public class GrafoEstudiantes {
 
     public GrafoEstudiantes() {
         this.nodos = new ArrayList<>();
-        this.rel = new HashMap<>();
+        //this.rel = new HashMap<>(10);
     }
 
     public void addNodo(Nodo<Integer, Estudiante> nuevo) {
@@ -53,7 +53,7 @@ public class GrafoEstudiantes {
 
     public List<Nodo<Integer, Estudiante>> encontrarRutaPorDeporte(Nodo<Integer, Estudiante> origen, String deporteBuscado) {
 
-        Map<Nodo<Integer, Estudiante>, Nodo<Integer, Estudiante>> predecesor = new HashMap<>();
+        //Map<Nodo<Integer, Estudiante>, Nodo<Integer, Estudiante>> predecesor = new HashMap<>();
         Set<Nodo<Integer, Estudiante>> visitados = new HashSet<>();
         Queue<Nodo<Integer, Estudiante>> cola = new LinkedList<>();
 
@@ -79,7 +79,7 @@ public class GrafoEstudiantes {
                 Nodo<Integer, Estudiante> vecino = e.destino;
                 if (!visitados.contains(vecino)) {
                     visitados.add(vecino);
-                    predecesor.put(vecino, actual);
+                    //predecesor.put(vecino, actual);
                     cola.add(vecino);
                 }
             }
@@ -94,7 +94,7 @@ public class GrafoEstudiantes {
 
         while (nodo != null) {
             ruta.add(0, nodo); // insertar al inicio
-            nodo = predecesor.get(nodo);
+            //nodo = predecesor.get(nodo);
         }
         return ruta; // la lista de nodos visitados
     }
