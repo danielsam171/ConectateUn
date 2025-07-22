@@ -71,11 +71,11 @@
                                 android:layout_weight="1" />
 
                             <ImageView
-                                android:id="@+id/icono1"
-                                android:layout_width="@dimen/TamanoIconoAncho"
+                                android:id="@+id/imageView14"
+                                android:layout_width="71dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                app:srcCompat="@drawable/busqueda" />
+                                app:srcCompat="@drawable/coninfo" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnInfoEstudiante"
@@ -123,11 +123,11 @@
                             android:layout_weight="1" />
 
                         <ImageView
-                            android:id="@+id/icono2"
-                            android:layout_width="@dimen/TamanoIconoAncho"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView15"
+                            android:layout_width="67dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/busqueda" />
+                            app:srcCompat="@drawable/conanadir" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnAgregarEstudiante"
@@ -178,11 +178,11 @@
                                 android:layout_weight="1" />
 
                             <ImageView
-                                android:id="@+id/icono3"
-                                android:layout_width="@dimen/TamanoIconoAncho"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/imageView16"
+                                android:layout_width="71dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                app:srcCompat="@drawable/atrasado" />
+                                app:srcCompat="@drawable/monda" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btneliminarEstudiante"
@@ -229,11 +229,11 @@
                             android:layout_weight="1" />
 
                         <ImageView
-                            android:id="@+id/icono4"
-                            android:layout_width="@dimen/TamanoIconoAncho"
+                            android:id="@+id/imageView17"
+                            android:layout_width="75dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/busqueda" />
+                            app:srcCompat="@drawable/conconexiones" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnConsultarConexiones"
@@ -282,11 +282,11 @@
                             android:layout_weight="1" />
 
                         <ImageView
-                            android:id="@+id/icono5"
-                            android:layout_width="@dimen/TamanoIconoAncho"
+                            android:id="@+id/imageView18"
+                            android:layout_width="77dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/busqueda" />
+                            app:srcCompat="@drawable/condeportes" />
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnConsultarDeporte"
