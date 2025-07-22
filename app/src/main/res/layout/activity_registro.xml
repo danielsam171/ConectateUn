@@ -41,9 +41,11 @@
                     android:layout_height="match_parent"
                     android:gravity="center|center_vertical">
 
-                    <Space
-                        android:layout_width="10dp"
-                        android:layout_height="20dp" />
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="8dp"
+                        android:layout_height="22dp"
+                        app:srcCompat="@drawable/img" />
 
                     <EditText
                         android:id="@+id/registro_Correo"
@@ -62,9 +64,11 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/img_1" />
 
                     <EditText
                         android:id="@+id/registro_Clave"
@@ -83,9 +87,11 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="20dp"
+                        android:layout_height="24dp"
+                        app:srcCompat="@drawable/img_2" />
 
                     <EditText
                         android:id="@+id/registroconficlave"

@@ -41,14 +41,16 @@
                     android:layout_height="match_parent"
                     android:gravity="center|center_vertical">
 
-                    <Space
-                        android:layout_width="10dp"
-                        android:layout_height="20dp" />
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="59dp"
+                        android:layout_height="57dp"
+                        app:srcCompat="@drawable/xd" />
 
                     <EditText
                         android:id="@+id/iniciar_sesionUsuario"
-                        android:layout_width="@dimen/anchoCamposIngreso"
-                        android:layout_height="wrap_content"
+                        android:layout_width="306dp"
+                        android:layout_height="57dp"
                         android:ems="10"
                         android:hint="@string/text_usuario"
                         android:inputType="textEmailAddress"
@@ -60,9 +62,11 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        app:srcCompat="@drawable/img_1" />
 
                     <EditText
                         android:id="@+id/iniciarSesionClave"
