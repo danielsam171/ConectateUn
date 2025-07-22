@@ -9,8 +9,8 @@
     tools:context=".ConsultarConexiones">
 
     <LinearLayout
-        android:layout_width="269dp"
-        android:layout_height="598dp"
+        android:layout_width="279dp"
+        android:layout_height="603dp"
         android:layout_marginStart="95dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="95dp"
@@ -18,9 +18,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51">
 
         <TextView
             android:id="@+id/textView9"
@@ -56,10 +56,11 @@
                 android:layout_height="70dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="hola rabanito"
+                android:hint="ID"
                 android:inputType="text"
-                android:text="ID:"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <Space
@@ -80,11 +81,16 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="34dp" />
+            android:layout_height="10dp" />
 
         <ListView
+            android:id="@+id/DeportesConexiones"
             android:layout_width="match_parent"
-            android:layout_height="143dp" />
+            android:layout_height="133dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="27dp" />
 
         <TextView
             android:id="@+id/textView12"
@@ -97,7 +103,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="35dp" />
+            android:layout_height="42dp" />
 
         <ListView
             android:id="@+id/ListConexiones"
