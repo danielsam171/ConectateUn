@@ -15,10 +15,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class EliminarEstudiante extends AppCompatActivity {
 
+    private MiAplication miApp;
     EditText campocedula;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        miApp = (MiAplication) getApplication();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_eliminar_estudiante);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
