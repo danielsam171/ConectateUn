@@ -1,4 +1,6 @@
+/*
 package com.example.estructuras;
+
 
 import java.util.*;
 
@@ -7,6 +9,8 @@ public class GrafoEstudiantes {
     private static class Arista {
         private Nodo<Integer, Estudiante> destino;
         private String deporte;
+
+
 
         Arista(Nodo<Integer, Estudiante> destino, String deporte) {
             this.destino = destino;
@@ -54,6 +58,7 @@ public class GrafoEstudiantes {
     public List<Nodo<Integer, Estudiante>> encontrarRutaPorDeporte(Nodo<Integer, Estudiante> origen, String deporteBuscado) {
 
         //Map<Nodo<Integer, Estudiante>, Nodo<Integer, Estudiante>> predecesor = new HashMap<>();
+
         Set<Nodo<Integer, Estudiante>> visitados = new HashSet<>();
         Queue<Nodo<Integer, Estudiante>> cola = new LinkedList<>();
 
@@ -131,5 +136,7 @@ public class GrafoEstudiantes {
             System.out.println();
         }
     }*/
-}
+
+
+
 

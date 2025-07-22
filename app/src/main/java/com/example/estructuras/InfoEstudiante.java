@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,6 +39,10 @@ public class InfoEstudiante extends AppCompatActivity {
     ArrayAdapter<String> adapter2; //El adaptador para conectar la lista
     private ListView listView2; // La lista que voy a mostrar, es el widget
 
+    private TextView nombreCampo;
+    private TextView apellidoCampo;
+
+    private EditText cCampo;// Variable para gestionar el campo de CC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,12 +76,23 @@ public class InfoEstudiante extends AppCompatActivity {
 
         miApp.getHashEstudiantes().printTable();
 
+        cCampo = findViewById(R.id.agrEstCC);
+        nombreCampo = findViewById(R.id.inf_txt_nombre);
+        apellidoCampo = findViewById(R.id.inf_txt_apellido);
 
+        
     }
     public void irMenuprincipal(View view){
         Intent intent = new Intent(this, MenuPrincipal.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+    }
+    public void buscar(View view){
+        System.out.println("Buscando estudiante");
+        //aca vamos a setear el nombre y apellido del estudiante en el front con un id dado
+        nombreCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getNombre());
+        apellidoCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getApellido());
+
     }
 
 

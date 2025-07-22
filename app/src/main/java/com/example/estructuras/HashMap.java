@@ -1,5 +1,7 @@
 package com.example.estructuras;
 
+import android.hardware.lights.LightsManager;
+
 import java.util.ArrayList;
 import java.util.function.BiConsumer; 
 
@@ -167,7 +169,7 @@ public class HashMap<K, V> {
             Nodo<K,V> cur = head;
             while (cur != null) {
                 action.accept(cur.key, cur.value);
-                cur = cur.next;
+                //cur = cur.next;
             }
         }
     }

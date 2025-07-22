@@ -71,5 +71,19 @@ public class Estudiante {
         System.out.println("Deportes practicados: " + String.join(", ", deportes_practicados));
         System.out.println("Deportes interesados: " + String.join(", ", deportes_interesados));
     }
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+
+    }
+
+    public String getApellido(){
+        return apellido;
+    }
+
 }
 
