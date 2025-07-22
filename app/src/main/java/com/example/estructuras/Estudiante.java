@@ -22,6 +22,11 @@ public class Estudiante {
     }
 
     //Getters y Setters
+    //
+    public int getId() {
+        return id;
+    }//devuelve el ID del estudiante    //todo agregado adicional a la clase
+
     public String[] getDeportesPracticados() {
         return deportes_practicados;
     } //devuelve el array de deportes practicados

@@ -1,5 +1,8 @@
 package com.example.estructuras;
 
+import java.util.ArrayList;
+import java.util.function.BiConsumer; 
+
 public class HashMap<K, V> {
     private int size;
     private static final double LOAD_FACTOR = 0.75;
@@ -126,6 +129,49 @@ public class HashMap<K, V> {
     public int Getsize() {
         return size;
     }
+
+    //TODO!: Implementar métodos para poder iterar en la clase 
+    //TODO!: Se requieren para construir el grafo multicapa
+
+    //TODO: Retorna un ArrayList con todos los valores almacenados en los nodos del HashMap
+    public ArrayList<V> values() {
+        ArrayList<V> list = new ArrayList<>();
+        for (Nodo<K,V> head : table) {
+            Nodo<K,V> cur = head;
+            while (cur != null) {
+                list.add(cur.value);
+                cur = cur.next;
+            }
+        }
+        return list;
+    }
+    
+    // TODO: Retorna un ArrayList con todos los keys almacenados en los nodos del HashMap
+    public ArrayList<K> keys() {
+        ArrayList<K> list = new ArrayList<>();
+        for (Nodo<K,V> head : table) {
+            Nodo<K,V> cur = head;
+            while (cur != null) {
+                list.add(cur.key);
+                cur = cur.next;
+            }
+        }
+        return list;
+    }
+    
+    // TODO: Permite realizar una acción para cada par (key, value) del HashMap. Se están recorriendo todos los todos los pares (key,value)
+    // TODO: BiConsumer es una interfaz funcional que recibe dos parámetros y no devuelve nada. Permite hacer programación funcional.
+    // TODO: Se emplea para construir el grafo multicapa
+    public void forEach(BiConsumer<K,V> action){
+        for (Nodo<K,V> head : table) {
+            Nodo<K,V> cur = head;
+            while (cur != null) {
+                action.accept(cur.key, cur.value);
+                cur = cur.next;
+            }
+        }
+    }
+    
     
 }
 
