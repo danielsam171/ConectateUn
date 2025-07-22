@@ -17,6 +17,8 @@ public class MiAplication extends Application {
     public HashMap<Integer, Estudiante> hash_Estudiantes_app;
     public HashMap<String, ArrayList<Estudiante> > hash_deportes_app;
 
+    public GrafoMulticapa grafoEstudiantes;
+
 
 
     //todo crear variable grafo publico para acceder a ella desde cualquier archivo
@@ -32,6 +34,7 @@ public class MiAplication extends Application {
         // Esto se ejecutará SÓLO UNA VEZ cuando la aplicación se inicie.
         hash_Estudiantes_app = new HashMap<>(10); // Puedes ajustar la capacidad inicial
         hash_deportes_app = new HashMap<>(10);  // Puedes ajustar la capacidad inicial
+        grafoEstudiantes = new GrafoMulticapa(hash_Estudiantes_app, hash_deportes_app);
 
         Log.i(TAG, "onCreate: HashMaps globales inicializados.");
 

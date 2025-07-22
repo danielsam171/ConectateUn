@@ -23,6 +23,7 @@ public class ConsultarConexiones extends AppCompatActivity {
     //Variable para gestionar el ID
     private EditText campoID;
 
+    private MiAplication miApp;
 
 
 
@@ -47,6 +48,7 @@ public class ConsultarConexiones extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        miApp = (MiAplication) getApplication();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_consultar_conexiones);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
