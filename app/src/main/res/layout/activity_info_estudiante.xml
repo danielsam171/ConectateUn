@@ -68,17 +68,17 @@
                     android:textColorHint="@color/white"
                     android:textSize="@dimen/letraCampos" />
 
-                <ImageButton
-                    android:id="@+id/Lupita"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="12dp"
+                    android:layout_height="49dp"
                     android:layout_weight="1"
                     android:onClick="buscar"
-                    app:srcCompat="@drawable/baseline_search_24" />
+                    app:srcCompat="@drawable/lupitaicon" />
 
                 <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="7dp"
+                    android:layout_height="17dp"
                     android:layout_weight="1" />
             </LinearLayout>
 

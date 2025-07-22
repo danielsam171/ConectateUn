@@ -90,9 +90,13 @@ public class InfoEstudiante extends AppCompatActivity {
     public void buscar(View view){
         System.out.println("Buscando estudiante");
         //aca vamos a setear el nombre y apellido del estudiante en el front con un id dado
-        nombreCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getNombre());
-        apellidoCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getApellido());
-
+        try {
+            nombreCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getNombre());
+            apellidoCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getApellido());
+        }catch (Exception e){
+            nombreCampo.setText("Nada");
+            apellidoCampo.setText("Nada");
+        }
     }
 
 
