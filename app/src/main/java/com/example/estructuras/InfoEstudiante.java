@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class InfoEstudiante extends AppCompatActivity {
 
-    String[] deportes = {"Fútbol", "Voleibol", "Baloncesto", "Ping Pong","Rugbi"};//La lista de todas las opciones posibles
+    String[] deportes = {"Fútbol", "voleibol", "Baloncesto", "Ciclismo", "Rugby","Tenis","Ajedrez","Boxeo", "Natación","Atletismo"};//La lista de todas las opciones posibles
 
     //Esto es para mostrar la tabla de "Practica"
     ArrayList<String> ListaDeportesSeleccionados = new ArrayList<>(); ////lista de deportes ya seleccionados y que sale en la tabla
@@ -60,8 +60,6 @@ public class InfoEstudiante extends AppCompatActivity {
         listView = findViewById(R.id.infDeportePractica);
         //ListaDeportesSeleccionados es la variable los deportes que practica el estudiante
         //Datos sinteticos para mostrar en lista de "Practica"
-        ListaDeportesSeleccionados.add(deportes[0]);
-        ListaDeportesSeleccionados.add(deportes[1]);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListaDeportesSeleccionados);
         listView.setAdapter(adapter);
 
@@ -69,9 +67,6 @@ public class InfoEstudiante extends AppCompatActivity {
         listView2 = findViewById(R.id.infDeporteInteresan);
         //ListaDeportesSeleccionados2 es la variable para los deportes que le interesan al estudiante
         //Datos sinteticos para mostrar en lista de "Interesan"
-        ListaDeportesSeleccionados2.add(deportes[2]);
-        ListaDeportesSeleccionados2.add(deportes[3]);
-        ListaDeportesSeleccionados2.add(deportes[4]);
         adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ListaDeportesSeleccionados2);
         listView2.setAdapter(adapter2);
 

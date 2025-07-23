@@ -17,8 +17,8 @@ public class Estudiante {
         this.nombre = nombre;
         this.apellido = apellido;
         this.id = id;
-        this.deportes_practicados = new String[5];
-        this.deportes_interesados = new String[5];
+        this.deportes_practicados = new String[10];
+        this.deportes_interesados = new String[10];
     }
 
     //Getters y Setters
