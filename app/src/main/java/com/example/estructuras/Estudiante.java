@@ -61,6 +61,17 @@ public class Estudiante {
         Estudiante otro = (Estudiante) o;
         return this.id == otro.id; // Compare by student ID
     }
+    public ArrayList<String> getDeportesInteresados_ArrayList() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (String d : deportes_interesados) {
+            if (d != null && !d.isEmpty()) {
+                lista.add(d);
+            }
+        }
+        return lista;
+    }
+
+
 
 
 
