@@ -144,7 +144,7 @@ public class ConsultarConexiones extends AppCompatActivity {
 
                 // 6b) Filtrar estudiantes que PRACTIQUEN esos deportes
                 ArrayList<Estudiante> matches = filtrarEstudiantesPorDeportes(
-                        seleccionadosPorNombre);
+                        seleccionadosPorNombre, idOrigen);
 
                 // 6c) Llenar el adapter de resultados
                 resultadosConexiones.clear();
@@ -172,33 +172,46 @@ public class ConsultarConexiones extends AppCompatActivity {
      * Recorre todos los estudiantes y devuelve los que practican
      * TODOS los deportes de la lista dada.
      */
+    /**
+     * Devuelve todos los estudiantes del mismo subgrafo de origenId
+     * que PRACTIQUEN *todos* los deportes de la lista dada.
+     */
     private ArrayList<Estudiante> filtrarEstudiantesPorDeportes(
-            ArrayList<String> deportesSeleccionados) {
+            ArrayList<String> deportesSeleccionados, int idOrigen) {
+
         ArrayList<Estudiante> resultado = new ArrayList<>();
         if (deportesSeleccionados.isEmpty()) return resultado;
 
-        // Tomar la lista de un deporte como punto de partida
-        String primero = deportesSeleccionados.get(0);
-        ArrayList<Estudiante> base = miApp.getHashDeportes().get(primero);
-        if (base == null) return resultado;
+        // 1) Obtengo la componente conexa de IDs
+        ArrayList<Integer> componente =
+                miApp.getGrafoEstudiantes().obtenerComponente(idOrigen);
 
-        // Verificar para cada estudiante de la base que tenga todos
-        for (Estudiante est : base) {
-            boolean cumpleTodos = true;
-            for (String d : deportesSeleccionados) {
-                ArrayList<Estudiante> listaDeporte =
-                        miApp.getHashDeportes().get(d);
-                if (listaDeporte == null || !listaDeporte.contains(est)) {
-                    cumpleTodos = false;
-                    break;
-                }
-            }
-            if (cumpleTodos) {
+        Log.d("DebugFiltrar", "Componente de " + idOrigen + " → " + componente);
+
+        // 2) Para cada ID en la componente, chequeo si cumple todos los deportes
+        for (Integer id : componente) {
+            // salto el mismo origen si no quieres incluirlo
+            if (id == idOrigen) continue;
+
+            Estudiante est = miApp.getHashEstudiantes().get(id);
+            if (est == null) continue;
+
+            // Obtengo la lista de practicados como ArrayList
+            ArrayList<String> pract = est.getDeportesPracticados_ArrayList();
+            // Si contiene todos los seleccionados, lo agrego
+            if (pract.containsAll(deportesSeleccionados)) {
                 resultado.add(est);
+                Log.d("DebugFiltrar", "  → cumple: " + est.getId() + " " + pract);
+            } else {
+                Log.d("DebugFiltrar", "  no cumple: " + est.getId() + " " + pract);
             }
         }
+
         return resultado;
     }
+
+
+
 }
 
 

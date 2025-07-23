@@ -276,4 +276,33 @@ public class GrafoMulticapa {
         }
         return null;
     }
+    /**
+     * Retorna el conjunto (lista) de IDs de todos los estudiantes
+     * conectados con origenId (incluye al propio origen).
+     */
+    public ArrayList<Integer> obtenerComponente(int origenId) {
+        ArrayList<Integer> comp = new ArrayList<>();
+        Integer idxOrigen = idToIndex.get(origenId);
+        if (idxOrigen == null) return comp;
+
+        Queue<Integer> cola = new LinkedList<>();
+        Set<Integer> visitados = new HashSet<>();
+        cola.add(origenId);
+        visitados.add(origenId);
+
+        while (!cola.isEmpty()) {
+            int actual = cola.poll();
+            comp.add(actual);
+            // Para cada vecino en la lista de adyacencia...
+            for (Conexion c : adj.get(idToIndex.get(actual))) {
+                int vecinoId = c.vecinoId;
+                if (!visitados.contains(vecinoId)) {
+                    visitados.add(vecinoId);
+                    cola.add(vecinoId);
+                }
+            }
+        }
+        return comp;
+    }
+
 }

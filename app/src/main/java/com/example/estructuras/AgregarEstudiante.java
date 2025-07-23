@@ -268,6 +268,7 @@ public class AgregarEstudiante extends AppCompatActivity {
             Estudiante estudiante = miApp.getHashEstudiantes().get(id);
             estudiante.setDeportesPracticados_Arraylist(ListadeportesSeleccionados1);
             estudiante.setDeportesInteresados_Arraylist(ListadeportesSeleccionados2);
+            miApp.getGrafoEstudiantes().agregarNodo(estudiante, miApp.getHashDeportes());
 
             //Cambiar de vista
             Intent intent = new Intent(this, MenuPrincipal.class);

@@ -70,6 +70,15 @@ public class Estudiante {
         }
         return lista;
     }
+    public ArrayList<String> getDeportesPracticados_ArrayList() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (String d : deportes_practicados) {
+            if (d != null && !d.isEmpty()) {
+                lista.add(d);
+            }
+        }
+        return lista;
+    }
 
 
 
