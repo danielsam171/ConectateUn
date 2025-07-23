@@ -91,8 +91,21 @@ public class InfoEstudiante extends AppCompatActivity {
         System.out.println("Buscando estudiante");
         //aca vamos a setear el nombre y apellido del estudiante en el front con un id dado
         try {
-            nombreCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getNombre());
-            apellidoCampo.setText(miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString())).getApellido());
+            ListaDeportesSeleccionados.clear();
+            ListaDeportesSeleccionados2.clear();
+            Estudiante e = miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString()));
+            String arrDS1[] = e.getDeportesPracticados();
+            String arrDS2[] = e.getDeportesInteresados();
+            for (String deporte : arrDS1) {
+                ListaDeportesSeleccionados.add(deporte);
+            }
+            for (String deporte : arrDS2) {
+                ListaDeportesSeleccionados2.add(deporte);
+            }
+            adapter.notifyDataSetChanged();
+            adapter2.notifyDataSetChanged();
+            nombreCampo.setText(e.getNombre());
+            apellidoCampo.setText(e.getApellido());
         }catch (Exception e){
             nombreCampo.setText("Nada");
             apellidoCampo.setText("Nada");

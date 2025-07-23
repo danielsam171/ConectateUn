@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -256,26 +257,38 @@ public class AgregarEstudiante extends AppCompatActivity {
         miApp.getHashEstudiantes().get(Integer.parseInt(CC)).imprimir();
         miApp.getHashEstudiantes().printTable();
         miApp.getHashDeportes().printTable();
-
-        //Cambiar de vista
-        Intent intent = new Intent(this, MenuPrincipal.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
     }
 
     public void procesar_Estudiante(String nombre, String apellido, int id){
-        agregar_Estudiante_Hash(nombre,apellido,id);
-        for (String deporte : ListadeportesSeleccionados1) {
-            agregar_Estudiante_Hash_deportes(deporte,id);
+        boolean fueAgregado = agregar_Estudiante_Hash(nombre,apellido,id);
+        if (fueAgregado) {
+            for (String deporte : ListadeportesSeleccionados1) {
+                agregar_Estudiante_Hash_deportes(deporte, id);
+            }
+            Estudiante estudiante = miApp.getHashEstudiantes().get(id);
+            estudiante.setDeportesPracticados_Arraylist(ListadeportesSeleccionados1);
+            estudiante.setDeportesInteresados_Arraylist(ListadeportesSeleccionados2);
+
+            //Cambiar de vista
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            Toast.makeText(AgregarEstudiante.this, "Usuario creado con éxito", Toast.LENGTH_SHORT).show();
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
-        Estudiante estudiante = miApp.getHashEstudiantes().get(id);
-        estudiante.setDeportesInteresados_Arraylist(ListadeportesSeleccionados1);
-        estudiante.setDeportesPracticados_Arraylist(ListadeportesSeleccionados2);
+        else{
+            campoCC.setError("ID ya registrado");
+            Toast.makeText(AgregarEstudiante.this, "Ya existe un usuario asociado a este ID", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void agregar_Estudiante_Hash(String nombre, String apellido, int id){
+    public boolean agregar_Estudiante_Hash(String nombre, String apellido, int id){
+        if (miApp.getHashEstudiantes().get(id) != null) {
+            return false;
+        }
+        // Si no existe, créalo y agrégalo
         Estudiante nuevo_estudiante = new Estudiante(nombre , apellido, id);
-        miApp.getHashEstudiantes().put(id,nuevo_estudiante);
+        miApp.getHashEstudiantes().put(id, nuevo_estudiante);
+        return true;
     }
 
 
