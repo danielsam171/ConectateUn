@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class EliminarEstudiante extends AppCompatActivity {
 
     private MiAplication miApp;
@@ -34,13 +36,44 @@ public class EliminarEstudiante extends AppCompatActivity {
     public void eliminarEstudiante(View view){
         String strcedula = campocedula.getText().toString().trim();
         if (strcedula.isEmpty()) {
-            campocedula.setError("El correo es obligatorio");
+            campocedula.setError("El ID es obligatorio");
             return; // Detiene la ejecución si el campo está vacío
         }
-        long cedula = Long.parseLong(strcedula);
+        int cedula;
+        try {
+            cedula = Integer.parseInt(strcedula);
+        } catch (NumberFormatException e) {
+            campocedula.setError("El ID debe ser un número válido");
+            return;
+        }
 
+        Estudiante estudiante = miApp.getHashEstudiantes().get(cedula);
+
+        if(estudiante != null){
+            String[] deportesPracticados = estudiante.getDeportesPracticados();
+            if (deportesPracticados != null) {
+                for (String deporte : deportesPracticados) {
+
+                    if (deporte != null && !deporte.isEmpty()) {
+
+                        ArrayList<Estudiante> estudiantesDelDeporte = miApp.getHashDeportes().get(deporte);
+
+                        if (estudiantesDelDeporte != null) {
+                            estudiantesDelDeporte.remove(estudiante);
+                        }
+                    }
+                }
+            }
+
+            miApp.getHashEstudiantes().remove(cedula);
+        }
+        else{
+            campocedula.setError("ID no encontrado");
+            Toast.makeText(EliminarEstudiante.this, "No existe un usuario registrado con este ID", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent(this, MenuPrincipal.class);
-        Toast.makeText(getApplicationContext(), "El estudiante se elimino",
+        Toast.makeText(getApplicationContext(), "El estudiante se eliminó correctamente",
                 Toast.LENGTH_SHORT).show();
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

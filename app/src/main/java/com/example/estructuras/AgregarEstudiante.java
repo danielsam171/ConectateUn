@@ -276,6 +276,7 @@ public class AgregarEstudiante extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
+
         else{
             campoCC.setError("ID ya registrado");
             Toast.makeText(AgregarEstudiante.this, "Ya existe un usuario asociado a este ID", Toast.LENGTH_SHORT).show();
