@@ -54,7 +54,7 @@ public class ConsultarDeporte extends AppCompatActivity {
     private final ArrayList<String> personasBaloncesto = new ArrayList<>(Arrays.asList("Juan Luis Arteaga", "David Herrera"));
     private final ArrayList<String> personasPingPong = new ArrayList<>(Arrays.asList("Sofia Cardenas", "Paola Mora")); // Ejemplo adicional
     private final ArrayList<String> personasRugbi = new ArrayList<>(Arrays.asList("Junior Fino", "Lucia Promotores")); // Ejemplo adicional
-    
+
 
 
     private MiAplication miApp;

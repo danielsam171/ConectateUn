@@ -19,6 +19,7 @@ import android.app.Application;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -88,29 +89,65 @@ public class InfoEstudiante extends AppCompatActivity {
         startActivity(intent);
     }
     public void buscar(View view){
-        System.out.println("Buscando estudiante");
-        //aca vamos a setear el nombre y apellido del estudiante en el front con un id dado
+
+        String textoId = cCampo.getText().toString();
+
+        if (textoId.isEmpty()) {
+            cCampo.setError("Por favor, ingrese un ID");
+            return;
+        }
+
+        int idBuscado;
         try {
+            idBuscado = Integer.parseInt(textoId);
+        } catch (NumberFormatException ex) {
+            cCampo.setError("El ID debe ser un número");
+            return;
+        }
+
+        // 1. Intentamos obtener el estudiante del HashMap.
+        Estudiante estudianteEncontrado = miApp.getHashEstudiantes().get(idBuscado);
+
+        // 2. Verificamos explícitamente si el estudiante fue encontrado o no.
+        if (estudianteEncontrado != null) {
             ListaDeportesSeleccionados.clear();
             ListaDeportesSeleccionados2.clear();
-            Estudiante e = miApp.getHashEstudiantes().get(Integer.parseInt(cCampo.getText().toString()));
-            String arrDS1[] = e.getDeportesPracticados();
-            String arrDS2[] = e.getDeportesInteresados();
-            for (String deporte : arrDS1) {
-                ListaDeportesSeleccionados.add(deporte);
+
+            // Rellenamos las listas con los datos del estudiante encontrado.
+            String arrDS1[] = estudianteEncontrado.getDeportesPracticados();
+            if (arrDS1 != null) {
+                for (String deporte : arrDS1) {
+                    if (deporte != null) { // Añadimos una comprobación extra por si hay nulos en el array.
+                        ListaDeportesSeleccionados.add(deporte);
+                    }
+                }
             }
-            for (String deporte : arrDS2) {
-                ListaDeportesSeleccionados2.add(deporte);
+
+            String arrDS2[] = estudianteEncontrado.getDeportesInteresados();
+            if (arrDS2 != null) {
+                for (String deporte : arrDS2) {
+                    if (deporte != null) {
+                        ListaDeportesSeleccionados2.add(deporte);
+                    }
+                }
             }
             adapter.notifyDataSetChanged();
             adapter2.notifyDataSetChanged();
-            nombreCampo.setText(e.getNombre());
-            apellidoCampo.setText(e.getApellido());
-        }catch (Exception e){
-            nombreCampo.setText("Nada");
-            apellidoCampo.setText("Nada");
+            nombreCampo.setText(estudianteEncontrado.getNombre());
+            apellidoCampo.setText(estudianteEncontrado.getApellido());
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "No existe un estudiante asociado a este ID",
+                    Toast.LENGTH_SHORT).show();
+
+            nombreCampo.setText("Estudiante no encontrado");
+            apellidoCampo.setText(""); // Dejar en blanco el apellido es más limpio
+
+            ListaDeportesSeleccionados.clear();
+            ListaDeportesSeleccionados2.clear();
+
+            adapter.notifyDataSetChanged();
+            adapter2.notifyDataSetChanged();
         }
     }
-
-
 }
