@@ -37,7 +37,7 @@ public class EliminarEstudiante extends AppCompatActivity {
         String strcedula = campocedula.getText().toString().trim();
         if (strcedula.isEmpty()) {
             campocedula.setError("El ID es obligatorio");
-            return; // Detiene la ejecución si el campo está vacío
+            return;
         }
         int cedula;
         try {
@@ -48,35 +48,42 @@ public class EliminarEstudiante extends AppCompatActivity {
         }
 
         Estudiante estudiante = miApp.getHashEstudiantes().get(cedula);
+        if(estudiante == null){
+            campocedula.setError("ID no encontrado");
+            Toast.makeText(this,
+                    "No existe un usuario registrado con este ID",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        if(estudiante != null){
-            String[] deportesPracticados = estudiante.getDeportesPracticados();
-            if (deportesPracticados != null) {
-                for (String deporte : deportesPracticados) {
-
-                    if (deporte != null && !deporte.isEmpty()) {
-
-                        ArrayList<Estudiante> estudiantesDelDeporte = miApp.getHashDeportes().get(deporte);
-
-                        if (estudiantesDelDeporte != null) {
-                            estudiantesDelDeporte.remove(estudiante);
-                        }
+        // 1) Quitarlo de cada lista de hashDeportes
+        String[] deportesPracticados = estudiante.getDeportesPracticados();
+        if (deportesPracticados != null) {
+            for (String deporte : deportesPracticados) {
+                if (deporte != null && !deporte.isEmpty()) {
+                    ArrayList<Estudiante> lista = miApp.getHashDeportes().get(deporte);
+                    if (lista != null) {
+                        lista.remove(estudiante);
                     }
                 }
             }
+        }
 
-            miApp.getHashEstudiantes().remove(cedula);
-        }
-        else{
-            campocedula.setError("ID no encontrado");
-            Toast.makeText(EliminarEstudiante.this, "No existe un usuario registrado con este ID", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        Intent intent = new Intent(this, MenuPrincipal.class);
-        Toast.makeText(getApplicationContext(), "El estudiante se eliminó correctamente",
+        // 2) Quitarlo del hash de estudiantes
+        miApp.getHashEstudiantes().remove(cedula);
+
+        // 3) **Eliminarlo del grafo**
+        miApp.getGrafoEstudiantes().eliminarNodo(cedula);
+
+        // 4) Volver al menú principal
+        Toast.makeText(this,
+                "El estudiante se eliminó correctamente",
                 Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, MenuPrincipal.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
 
 }

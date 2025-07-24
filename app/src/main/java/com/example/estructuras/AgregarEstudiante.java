@@ -30,7 +30,7 @@ public class AgregarEstudiante extends AppCompatActivity {
 
     //Variables para seleccionar los deportes en la primera vista
     TextView vistaSelecDepor1 ;
-    String deportes[] = {"Fútbol", "voleibol", "Baloncesto", "ping pong","Rugby"};
+    String deportes[] = {"Fútbol", "voleibol", "Baloncesto", "Ciclismo", "Rugby","Tenis","Ajedrez","Boxeo", "Natación","Atletismo"};
     boolean blnSeleccion1[];
     ArrayList<Integer> indiceDeporSelect1 = new ArrayList<>();
 
@@ -268,6 +268,7 @@ public class AgregarEstudiante extends AppCompatActivity {
             Estudiante estudiante = miApp.getHashEstudiantes().get(id);
             estudiante.setDeportesPracticados_Arraylist(ListadeportesSeleccionados1);
             estudiante.setDeportesInteresados_Arraylist(ListadeportesSeleccionados2);
+            miApp.getGrafoEstudiantes().agregarNodo(estudiante, miApp.getHashDeportes());
 
             //Cambiar de vista
             Intent intent = new Intent(this, MenuPrincipal.class);

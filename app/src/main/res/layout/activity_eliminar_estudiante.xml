@@ -27,11 +27,15 @@
             android:textColor="@color/white"
             android:textSize="@dimen/letraTitulos" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="17dp" />
+
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/iconoconectate" />
+            android:layout_width="70dp"
+            android:layout_height="82dp"
+            app:srcCompat="@drawable/calaberaicon" />
 
         <Space
             android:layout_width="match_parent"

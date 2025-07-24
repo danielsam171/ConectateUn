@@ -17,8 +17,8 @@ public class Estudiante {
         this.nombre = nombre;
         this.apellido = apellido;
         this.id = id;
-        this.deportes_practicados = new String[5];
-        this.deportes_interesados = new String[5];
+        this.deportes_practicados = new String[10];
+        this.deportes_interesados = new String[10];
     }
 
     //Getters y Setters
@@ -61,6 +61,26 @@ public class Estudiante {
         Estudiante otro = (Estudiante) o;
         return this.id == otro.id; // Compare by student ID
     }
+    public ArrayList<String> getDeportesInteresados_ArrayList() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (String d : deportes_interesados) {
+            if (d != null && !d.isEmpty()) {
+                lista.add(d);
+            }
+        }
+        return lista;
+    }
+    public ArrayList<String> getDeportesPracticados_ArrayList() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (String d : deportes_practicados) {
+            if (d != null && !d.isEmpty()) {
+                lista.add(d);
+            }
+        }
+        return lista;
+    }
+
+
 
 
 
